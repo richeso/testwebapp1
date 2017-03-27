@@ -48,6 +48,10 @@ echo `git checkout -- .`
 echo `git pull`
 cd $curpath
 
+if [ ! -d "./wildfly/webapps" ]; then
+   mkdir -p ./wildfly/webapps
+fi
+chmod 775 -R *
 ant -f replace_localhost.xml -Ddbhost=mypostgres -Dwebhost=mycentos1 -Dwebport=8080
 cd $rootdir/$project/
 gradle -Dorg.gradle.java.home=$JDK_PATH build war
