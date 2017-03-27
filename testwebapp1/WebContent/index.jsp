@@ -10,14 +10,14 @@
 </head>
 <body>
   <div align="center" class="container" style="padding:50px 250px;">
-    <h1>Azure Stack Test Web App</h1>
+    <h1>CH AzureStack TestWebApp1</h1>
 		<hr>
 		<div align="left">
 		<ul>
 		<li>Jboss Community Edition - Wildfly 10.0</li> 
 		<li>PostGres Database</li>
 		<li>Rest Web Services</li>
-		<li>SPA Architecture using JavaScript, JQuery</li>
+		<li>SPA Architecture using JavaScript, JQuery JQGrid</li>
 		</ul>
 		</div>
 		<hr>
