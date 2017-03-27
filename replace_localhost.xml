@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="replacelocalhost" basedir="." default="ALL">
+  <!-- Start of Property Parameters -->
+  
+    <property name="webhost" value="xx"/>
+    <property name="dbhost"  value="xx"/>
+    <property name="webport" value="8080"/>
+    <property name="wildflyconfig"  value="./wildfly"/>
+    <property name="jspdir"  value="./testwebapp1/WebContent"/>
+
+  
+  <target name="ALL">
+	 <replaceregexp byline="false" flags="g"
+	   match="localhost:8080" 
+	   replace="${webhost}:${webport}"> 
+	   <fileset dir="${jspdir}" includes ="*.jsp"/>
+  	</replaceregexp>
+  	 <replaceregexp byline="false" flags="g"
+		   match="localhost:8082" 
+		   replace="${webhost}:${webport}"> 
+		   <fileset dir="${jspdir}" includes ="*.jsp"/>
+  	</replaceregexp> 
+  	<replaceregexp byline="false" flags="g"
+	   match="localhost:5432" 
+	   replace="${dbhost}:5432"> 
+	   <fileset dir="${wildflyconfig}" includes ="standalone.xml"/>
+  	</replaceregexp> 
+  	
+</target>
+
+</project>

@@ -1,0 +1,25 @@
+def WAR_NAME='testwebapp.war'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+    project.webAppDirName = 'WebContent'
+    sourceSets {
+    main {
+      java { srcDir 'src' }
+      resources { srcDir 'src' }
+    }
+ }
+ configurations { moreLibs }
+    repositories {
+    mavenCentral()
+ }
+dependencies {
+compile fileTree(dir: "WebContent/WEB-INF/lib", include: '*.jar')
+providedCompile 'javax:javaee-api:7.0'
+ }
+    war {
+  exclude 'WEB-INF/lib/**'
+  exclude 'WEB-INF/classes/**'
+   archiveName WAR_NAME
+ }
+ /* Change context path (base url). otherwise defaults to name of project */
+ /* jettyRunWar.contextPath = '' */

@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+  web:
+    build: ./wildfly
+    container_name: mywildfly
+    ports:
+     - "8080:8080"
+     - "9990:9990"
+    depends_on:
+     - db
+    hostname: mywildfly
+    links:
+     - db
+    volumes:
+     - ./wildfly/scripts/:/tmp/scripts
+   
+  db:
+    build: ./postgres
+    container_name: mypostgres
+    ports:
+     - "5432:5432"
+    environment:
+     - POSTGRES_PASSWORD=postgres
+     - POSTGRES_USER=postgres
+    volumes:
+     - ./postgres/scripts:/tmp/scripts
+     - postgresdata:/var/lib/postgresql/data
+    
+volumes:
+  postgresdata:
+    external: true 

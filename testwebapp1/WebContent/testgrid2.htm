@@ -1,0 +1,128 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.6/css/ui.jqgrid.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.6/js/jquery.jqgrid.min.js"></script>
+  <title>js-tutorials.com : jQuery jQGrid Add,edit and Delete Example </title>
+</head>
+<body>
+  <div class="container" style="padding:50px 250px;">
+    <h1>jQuery jQGrid Add,edit and Delete Example</h1>
+	<table id="photos" class="display" cellspacing="0" width="100%">
+    </table>
+	<div id="pager2"></div>
+  </div>
+</body>
+</html>
+<script type="text/javascript">
+  $(document).ready(function(){
+	$("#photos").jqGrid({
+		url:'http://jsonplaceholder.typicode.com/posts',
+		datatype: "json",
+		colNames:['ID', 'User ID', 'Title', 'Body'],
+		colModel:[
+			{name:'id',index:'id', width:55, editable: false},
+			{name:'userId',index:'userId', width:55, editable: true},
+			{name:'title',index:'title', width:300, editable: true},
+			{name:'body',index:'body', width:350, sortable:false, editable: true, edittype:"textarea"}
+		],
+		rowNum:10,
+		loadonce: true,
+		rowList:[10,20,30],
+		pager: '#pager2',
+		sortname: 'id',
+		viewrecords: true,
+		sortorder: "desc",
+		caption:"",
+		editable: true
+	});
+	$("#photos").jqGrid('navGrid','#pager2',
+	{
+		edit:true, edittitle: "Edit Post", width: 500,
+		add:true, addtitle: "Add Post", width: 500,
+		del:true,
+		search: true,
+		refresh: true,
+		view:true
+	},
+    //Edit Options. save key parameter will keybind the Enter key to submit.
+	{
+		editCaption: "Edit Post",
+		edittext: "Edit",
+		closeOnEscape: true,
+		closeAfterAdd: true,
+		closeAfterEdit: true,
+		closeAfterUpdate: true,
+		savekey: [true, 13],
+		errorTextFormat: commonError,
+		width: "500",
+		reloadAfterSubmit: true,
+		bottominfo: "Fields marked with (*) are required",
+		top: "60",
+		left: "5",
+		right: "5",
+		onclickSubmit: function (response, postdata) {
+			//call edit button
+			EditComment(postdata);
+		}
+	},
+	//add Options. save key parameter will keybind the Enter key to submit.
+	{
+		addCaption: "Add Post",
+		addtext: "Add",
+		closeOnEscape: true,
+		closeAfterAdd: true,
+		closeAfterEdit: true,
+		savekey: [true, 13],
+		errorTextFormat: commonError,
+		width: "500",
+		reloadAfterSubmit: true,
+		bottominfo: "Fields marked with (*) are required",
+		top: "60",
+		left: "5",
+		right: "5",
+		onclickSubmit: function (response, postdata) {
+			AddPost(postdata);
+		}
+	},
+	//delete Options. save key parameter will keybind the Enter key to submit.
+	{
+		deleteCaption: "delete Post",
+		deletetext: "Delete Post",
+		closeOnEscape: true,
+		closeAfterEdit: true,
+		savekey: [true, 13],
+		errorTextFormat: commonError,
+		width: "500",
+		reloadAfterSubmit: true,
+		bottominfo: "Fields marked with (*) are required",
+		top: "60",
+		left: "5",
+		right: "5",
+		onclickSubmit: function (response, postdata) {
+			DeletePost(postdata);
+		}
+	}
+
+
+	);
+	function commonError(data) {
+        return "Error Occured during Operation. Please try again";
+    }
+	function EditPost(params) {
+		//Here you need to define ajax call for update records to server
+		console.log(params);
+	}
+	function AddPost(params) {
+		//Here you need to define ajax call for insert records to server
+		console.log(params);
+	}
+	function DeletePost(params) {
+		//Here you need to define ajax call for delete records to server
+		console.log(params);
+	}
+  });
+</script>
