@@ -16,7 +16,7 @@
 	   <fileset dir="${jspdir}" includes ="*.jsp"/>
   	</replaceregexp>
   	 <replaceregexp byline="false" flags="g"
-		   match="localhost:8082" 
+		   match="localhost:8080" 
 		   replace="${webhost}:${webport}"> 
 		   <fileset dir="${jspdir}" includes ="*.jsp"/>
   	</replaceregexp> 

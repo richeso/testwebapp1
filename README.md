@@ -27,7 +27,7 @@ After installing the above prerequisite software, do the following:
 2. Customize any ports and or directories and files in docker-compose.yml for your OS. The current implementation uses windows style naming conventions under Git Bash.
 3. Start your docker engine. If you are using Virtual Box as a provider for docker, remember to port forward whatever ports are defined in docker-compose.yml to your localhost machine.
 4. Change the location of the Java JDK specified in startup.sh and then execute startup.sh  (use the git bash shell if you're on windows). This will do a gradle build, configure and startup the two containers (web, db) and then initialize the application database as well as deploy the war file.
-5. Wait a few seconds and then launch your browser and point it to the url: [http://localhost:8082/testwebapp](http://localhost:8082/testwebapp "testwebapp")
+5. Wait a few seconds and then launch your browser and point it to the url: [http://localhost:8080/testwebapp](http://localhost:8080/testwebapp "testwebapp")
 
 ## What the above steps 1-2-3-4-5 do
 
@@ -35,7 +35,7 @@ After installing the above prerequisite software, do the following:
 1. Runs a Gradle Build of the application to generate testwebapp.war file and copies the generated file to the ./wildfly/webapps directory
 2. Runs docker-compose up -d which uses the docker-compose.yml for the following tasks:
 	- Creates mywildfly container using a customized Dockerfile in wildfly/Dockerfile running wildfly 10 from the official docker image
-		- maps container port 8080 to 8082 on the host so the web app can be accessed via localhost:8082
+		- maps container port 8080 to 8082 on the host so the web app can be accessed via localhost:8080
 		- maps host directories wildfly/scripts to a container directory
 		- maps the newly built war file to be deployed: widfly/webapps/testwebapp.war into the widfly container deployment directory .
 	- Creates mypostgres container running latest postgres. (This also uses a custom docker build file under /postgres/Dockerfile)

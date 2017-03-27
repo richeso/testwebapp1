@@ -45,7 +45,7 @@ $(document)
             $("#list")
                     .jqGrid(
                             {
-                                url : 'http://localhost:8082/testwebapp/rest/service',
+                                url : 'http://localhost:8080/testwebapp/rest/service',
                                 datatype : 'json',
                                 mtype : 'GET',
                                 colNames : [ 'name', 'Last Name',
@@ -77,7 +77,7 @@ $(document)
                                 jsonReader : {
                                     repeatitems : false,
                                 },
-                                editurl : "http://localhost:8082/testwebapp/rest/service/controller",
+                                editurl : "http://localhost:8080/testwebapp/rest/service/controller",
                                 datatype : 'json'
                             });
             jQuery("#list").jqGrid('navGrid', '#pager', {
