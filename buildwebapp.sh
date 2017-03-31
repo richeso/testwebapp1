@@ -43,9 +43,13 @@ echo "JDK_PATH is: " $JDK_PATH
 
 cd $rootdir
 echo "updating source from git repository into directory: "$rootdir/$project
-echo `git clean -df`
-echo `git checkout -- .`
-echo `git pull`
+if [  -d "$rootdir/$project" ]; then
+   ## remove source directory contents
+   rm -rf $rootdir/$project
+fi
+
+echo `git checkout -- $project`
+
 cd $curpath
 
 chmod 775 -R *
