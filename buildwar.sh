@@ -14,13 +14,13 @@ get_script_dir () {
 }
 
 
-javaunix="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.45.x86_64/"
+javaunix="/usr/lib/jvm/default-java/"
 javawindows="/c/pg/java/jdk1.7.0_80"
 javadefault=$javaunix
 
 if [ "$(uname)" == "Darwin" ]; then
     javadefault=$javaunix
-    echo ">>> Running Under MAC OSX java: "$javadefault 
+    echo ">>> Running Under MAC OSX java: "$javadefault
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     javadefault=$javaunix
     echo ">>> Running under Linux Platform java: "$javadefault
@@ -39,6 +39,3 @@ echo ">>> basedir of invocation script: $srcscript is $basedir "
 
 cd $basedir
 ./buildwebapp.sh . testwebapp1 $javadefault
-
-
-
