@@ -42,18 +42,18 @@ echo "current path is: " $curpath
 echo "JDK_PATH is: " $JDK_PATH
 
 cd $rootdir
-##echo "updating source from git repository into directory: "$rootdir/$project
-##if [  -d "$rootdir/$project" ]; then
+echo "updating source from git repository into directory: "$rootdir/$project
+if [  -d "$rootdir/$project" ]; then
    ## remove source directory contents
-##   rm -rf $rootdir/$project
-##fi
+   rm -rf $rootdir/$project
+fi
 
-##echo `git checkout -- $project`
-##echo "git clean -df | git checkout --.  |  git pull "
-##echo `git clean -df`
-##echo `git checkout -- .`
-##echo `git pull`
-##echo " --> Finished Git fetch and rebase"
+echo `git checkout -- $project`
+echo "git clean -df | git checkout --.  |  git pull "
+echo `git clean -df`
+echo `git checkout -- .`
+echo `git pull`
+echo " --> Finished Git fetch and rebase"
 
 cd $curpath
 
