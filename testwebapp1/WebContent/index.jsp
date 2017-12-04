@@ -18,7 +18,7 @@
 		<li>PostGres Database</li>
 		<li>Rest Web Services</li>
 		<li>SPA Architecture using JavaScript, JQuery JQGrid</li>
-		<li>Updated 4/21/2017 - 8:08AM
+		<li>Updated 12/04/2017 - 10:25AM
 		</ul>
 		</div>
 		<hr>
