@@ -7,3 +7,5 @@ fi
 ./buildwebapp.sh . testwebapp1 "/usr/lib/jvm/default-java"
 docker volume create --name postgresdata -d local
 docker-compose up -d
+sleep 60
+./wildfly/scripts/deploywar.sh

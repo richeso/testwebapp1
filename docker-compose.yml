@@ -13,7 +13,7 @@ services:
     links:
      - db
     volumes:
-     - ./wildfly/scripts/:/tmp/scripts
+     - ./wildfly/:/tmp/
    
   db:
     build: ./postgres
