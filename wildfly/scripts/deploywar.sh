@@ -12,8 +12,8 @@ user="jboss"
 
 docker exec -i $server bash <<EOF
 echo "==> Executing..."
-$JBOSS_CLI -c --file=/tmp/wildfly/scripts/batch.cli  --connect
-$JBOSS_CLI --connect --command="deploy --force /tmp/wildfly/webapps/testwebapp.war"
+$JBOSS_CLI -c --file=/tmp/scripts/batch.cli  --connect
+$JBOSS_CLI --connect --command="deploy --force /tmp/webapps/testwebapp.war"
 
 ##Undeploying an application works adequately:
 ##$JBOSS_CLI  --connect --command="undeploy testwebapp.war"
